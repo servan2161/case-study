@@ -9,5 +9,6 @@ final routes = GoRouter(
     GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
     GoRoute(path: '/login', builder: (context, state) => const login()),
     GoRoute(path: '/profile', builder: (context, state) => const profile()),
+    GoRoute(path: '/profile', builder: (context, state) => const profile()),
   ],
 );
