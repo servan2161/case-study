@@ -15,11 +15,9 @@ class _nameState extends State<HomeScreen> {
       backgroundColor: const Color.fromRGBO(36, 106, 253, 118),
       body: SafeArea(
         child: Center(
-          //MouseRegion: Fare imlecini kontrol eder
           child: MouseRegion(
-            cursor: SystemMouseCursors.click, // Fare imlecini el yapar
+            cursor: SystemMouseCursors.click,
             child: GestureDetector(
-              //GestureDetector, Görsel efekt olmadan tıklamayı yakalar
               onTap: () => GoRouter.of(context).push("/boarding"),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
