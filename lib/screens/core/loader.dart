@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:harry_potter/core/storage.dart';
 
 class loader extends StatefulWidget {
   const loader({super.key});
@@ -8,6 +10,23 @@ class loader extends StatefulWidget {
 }
 
 class _loaderState extends State<loader> {
+  loadapp() async {
+    final storage = Storage();
+    final first = await storage.first();
+    if (first) {
+      GoRouter.of(context).replace("/boarding");
+    } else {
+      GoRouter.of(context).replace("/home");
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadapp();
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(body: Center(child: CircularProgressIndicator()));
