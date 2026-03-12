@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class Welcome extends StatefulWidget {
+  const Welcome({super.key});
 
   @override
-  State<HomeScreen> createState() => _nameState();
+  State<Welcome> createState() => _nameState();
 }
 
-class _nameState extends State<HomeScreen> {
+class _nameState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
