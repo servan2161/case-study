@@ -10,6 +10,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Text("ss"));
+    return SafeArea(
+      child: Text(
+        "PROJENİN ÇALIŞMASINDAN KAYNAKLI ÇIKAN PROMBLER SONUCUNDA GİT HUB DENEMESİ",
+      ),
+    );
   }
 }
