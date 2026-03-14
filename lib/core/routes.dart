@@ -14,7 +14,7 @@ final routes = GoRouter(
     GoRoute(path: '/welcome', builder: (context, state) => const Welcome()),
     GoRoute(path: '/login', builder: (context, state) => const Login()),
     GoRoute(path: '/profile', builder: (context, state) => const profile()),
-    GoRoute(path: '/home', builder: (context, state) => const Home()),
+    GoRoute(path: '/home', builder: (context, state) => HomeScreen()),
     GoRoute(path: '/boarding', builder: (context, state) => const Boarding()),
   ],
 );
