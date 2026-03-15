@@ -86,7 +86,7 @@ class _ProfileScreenState extends State<profile> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0D1B3E),
+                  color: Color.fromARGB(255, 13, 27, 62),
                 ),
               ),
             ),
@@ -185,7 +185,7 @@ class _ProfileScreenState extends State<profile> {
               border: Border.all(color: Colors.grey.shade100),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.02),
+                  color: Colors.black.withValues(alpha: 0.02),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),
@@ -212,14 +212,14 @@ class _ProfileScreenState extends State<profile> {
                       children: [
                         const Icon(
                           Icons.star,
-                          color: Color(0xFF4DB6AC),
+                          color: Color.fromARGB(255, 77, 182, 172),
                           size: 18,
                         ),
                         const SizedBox(width: 4),
                         Text(
                           uni['alpha_two_code'] ?? "GR",
                           style: const TextStyle(
-                            color: Color(0xFF4DB6AC),
+                            color: Color.fromARGB(255, 77, 182, 172),
                             fontWeight: FontWeight.bold,
                           ),
                         ),

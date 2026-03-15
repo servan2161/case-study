@@ -151,7 +151,7 @@ class _BoardingState extends State<Boarding> {
       decoration: BoxDecoration(
         color: isActive
             ? const Color.fromARGB(255, 53, 106, 209)
-            : const Color.fromARGB(255, 53, 106, 209).withOpacity(0.2),
+            : const Color.fromARGB(255, 53, 106, 209).withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(3),
       ),
     );

@@ -104,7 +104,7 @@ class _DetalisState extends State<Detalis> {
         border: Border.all(color: Colors.blue.shade50, width: 2),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: Colors.black.withValues(alpha: 0.02),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -174,7 +174,7 @@ class _DetalisState extends State<Detalis> {
                   boxShadow: isPageSelected
                       ? [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
+                            color: Colors.black.withValues(alpha: 0.05),
                             blurRadius: 5,
                           ),
                         ]
@@ -205,7 +205,7 @@ class _DetalisState extends State<Detalis> {
                   boxShadow: !isPageSelected
                       ? [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
+                            color: Colors.black.withValues(alpha: 0.05),
                             blurRadius: 5,
                           ),
                         ]

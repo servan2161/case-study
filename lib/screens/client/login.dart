@@ -68,7 +68,7 @@ class GetStarted extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () => GoRouter.of(context).push('/home'),
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF356AD1),
+          backgroundColor: const Color.fromARGB(255, 53, 106, 209),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -105,7 +105,10 @@ class Exit extends StatelessWidget {
       child: OutlinedButton(
         onPressed: () => GoRouter.of(context).push('/welcome'),
         style: OutlinedButton.styleFrom(
-          side: const BorderSide(color: Color(0xFF356AD1), width: 1.5),
+          side: const BorderSide(
+            color: Color.fromARGB(255, 53, 106, 209),
+            width: 1.5,
+          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -116,13 +119,17 @@ class Exit extends StatelessWidget {
             Text(
               "Exit",
               style: TextStyle(
-                color: Color(0xFF356AD1),
+                color: Color.fromARGB(255, 53, 106, 209),
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
             ),
             SizedBox(width: 8),
-            Icon(Icons.arrow_forward_ios, color: Color(0xFF356AD1), size: 16),
+            Icon(
+              Icons.arrow_forward_ios,
+              color: Color.fromARGB(255, 53, 106, 209),
+              size: 16,
+            ),
           ],
         ),
       ),

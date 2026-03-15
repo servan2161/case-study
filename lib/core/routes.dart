@@ -6,6 +6,7 @@ import 'package:harry_potter/screens/client/profile.dart';
 import 'package:harry_potter/screens/core/error.dart';
 import 'package:harry_potter/screens/welcome.dart';
 import 'package:harry_potter/screens/static/boarding.dart';
+import 'package:harry_potter/services/university.dart';
 
 // GoRouter configuration
 final routes = GoRouter(
@@ -19,9 +20,9 @@ final routes = GoRouter(
     GoRoute(path: '/boarding', builder: (context, state) => const Boarding()),
 
     GoRoute(
-      path: '/detalis',
+      path: '/university-details',
       builder: (context, state) {
-        final universityData = state.extra as Map<String, dynamic>? ?? {};
+        final universityData = state.extra as University;
 
         return Detalis(university: universityData);
       },
