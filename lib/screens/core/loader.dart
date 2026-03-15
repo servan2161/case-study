@@ -14,15 +14,14 @@ class _loaderState extends State<loader> {
     final storage = Storage();
     final first = await storage.first();
     if (first) {
-      GoRouter.of(context).replace("/boarding");
-    } else {
       GoRouter.of(context).replace("/home");
+    } else {
+      GoRouter.of(context).replace("/loader");
     }
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     loadapp();
   }
