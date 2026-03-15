@@ -166,89 +166,98 @@ class _ProfileScreenState extends State<profile> {
 
   Widget _buildUniversityList() {
     return ListView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+
       itemCount: universityList.length,
       itemBuilder: (context, index) {
         final uni = universityList[index];
-        return Container(
-          margin: const EdgeInsets.only(bottom: 15),
-          padding: const EdgeInsets.all(15),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: const Color.fromARGB(255, 245, 245, 245)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.02),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      uni['name'] ?? "",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: Color.fromARGB(255, 13, 27, 62),
-                      ),
-                    ),
-                  ),
 
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.star,
-                        color: Color.fromARGB(255, 77, 182, 172),
-                        size: 18,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        uni['alpha_two_code'] ?? "GR",
+        return GestureDetector(
+          onTap: () {
+            context.push('/detalis', extra: uni);
+          },
+          child: Container(
+            margin: const EdgeInsets.only(bottom: 15),
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Colors.grey.shade100),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.02),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        uni['name'] ?? "University Name",
                         style: const TextStyle(
-                          color: Color.fromARGB(255, 77, 182, 172),
                           fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color.fromARGB(255, 13, 27, 62),
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
-              Text(
-                uni['web_pages'] != null ? uni['web_pages'][0] : "noah.edu.gr",
-                style: TextStyle(
-                  color: const Color.fromARGB(255, 189, 189, 189),
-                  fontSize: 13,
-                ),
-              ),
-              const SizedBox(height: 10),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.location_on,
-                    color: const Color.fromARGB(255, 158, 158, 158),
-                    size: 18,
-                  ),
-                  const SizedBox(width: 4),
-                  Text(
-                    "Macedonia",
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 158, 158, 158),
-                      fontSize: 13,
                     ),
-                  ),
-                ],
-              ),
-            ],
+
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.star,
+                          color: Color(0xFF4DB6AC),
+                          size: 18,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          uni['alpha_two_code'] ?? "GR",
+                          style: const TextStyle(
+                            color: Color(0xFF4DB6AC),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 4),
+                Text(
+                  (uni['web_pages'] != null && uni['web_pages'].isNotEmpty)
+                      ? uni['web_pages'][0]
+                      : "domain.edu",
+                  style: TextStyle(color: Colors.grey.shade400, fontSize: 13),
+                ),
+
+                const SizedBox(height: 12),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Icon(
+                      Icons.location_on,
+                      color: Colors.grey.shade500,
+                      size: 18,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      "Macedonia",
+                      style: TextStyle(
+                        color: Colors.grey.shade500,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         );
       },

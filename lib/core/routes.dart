@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:harry_potter/screens/client/detalis.dart';
 import 'package:harry_potter/screens/client/home.dart';
 import 'package:harry_potter/screens/client/login.dart';
 import 'package:harry_potter/screens/client/profile.dart';
@@ -16,5 +17,14 @@ final routes = GoRouter(
     GoRoute(path: '/profile', builder: (context, state) => const profile()),
     GoRoute(path: '/home', builder: (context, state) => HomeScreen()),
     GoRoute(path: '/boarding', builder: (context, state) => const Boarding()),
+
+    GoRoute(
+      path: '/detalis',
+      builder: (context, state) {
+        final universityData = state.extra as Map<String, dynamic>? ?? {};
+
+        return Detalis(university: universityData);
+      },
+    ),
   ],
 );
