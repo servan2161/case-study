@@ -18,7 +18,6 @@ class University {
       name: json['name'] ?? '',
       country: json['country'] ?? '',
       alphaTwoCode: json['alpha_two_code'] ?? '',
-      // Listeleri güvenli bir şekilde çekiyoruz
       domains: List<String>.from(json['domains'] ?? []),
       webPages: List<String>.from(json['web_pages'] ?? []),
     );

@@ -8,7 +8,6 @@ import 'package:harry_potter/screens/welcome.dart';
 import 'package:harry_potter/screens/static/boarding.dart';
 import 'package:harry_potter/services/university.dart';
 
-// GoRouter configuration
 final routes = GoRouter(
   errorBuilder: (context, state) => const error(),
   routes: [
@@ -18,7 +17,6 @@ final routes = GoRouter(
     GoRoute(path: '/profile', builder: (context, state) => const profile()),
     GoRoute(path: '/home', builder: (context, state) => HomeScreen()),
     GoRoute(path: '/boarding', builder: (context, state) => const Boarding()),
-
     GoRoute(
       path: '/university-details',
       builder: (context, state) {

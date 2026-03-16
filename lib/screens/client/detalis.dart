@@ -19,14 +19,12 @@ class _DetalisState extends State<Detalis> {
     final String name = widget.university.name;
     final String country = widget.university.country;
     final String code = widget.university.alphaTwoCode;
-
     final String domain = widget.university.domains.isNotEmpty
         ? widget.university.domains.first
         : "N/A";
     final String website = widget.university.webPages.isNotEmpty
         ? widget.university.webPages.first
         : "N/A";
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -63,7 +61,7 @@ class _DetalisState extends State<Detalis> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: const Color(0xFF2979FF),
+              color: const Color.fromARGB(255, 41, 121, 255),
               borderRadius: BorderRadius.circular(12),
             ),
             child: IconButton(
@@ -234,7 +232,7 @@ class _DetalisState extends State<Detalis> {
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFFFBFBFB),
+        color: const Color.fromARGB(255, 251, 251, 251),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:harry_potter/services/university.dart';
+
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -11,7 +13,7 @@ class profile extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<profile> {
-  List<dynamic> universityList = [];
+  List<University> universityList = [];
   bool isLoading = true;
 
   @override
@@ -29,7 +31,10 @@ class _ProfileScreenState extends State<profile> {
       if (response.statusCode == 200) {
         final List<dynamic> allData = json.decode(response.body);
         setState(() {
-          universityList = allData.take(20).toList();
+          universityList = allData
+              .take(20)
+              .map((item) => University.fromJson(item))
+              .toList();
           isLoading = false;
         });
       }
@@ -86,7 +91,7 @@ class _ProfileScreenState extends State<profile> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 13, 27, 62),
+                  color: Color(0xFF0D1B3E),
                 ),
               ),
             ),
@@ -167,14 +172,13 @@ class _ProfileScreenState extends State<profile> {
   Widget _buildUniversityList() {
     return ListView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-
       itemCount: universityList.length,
       itemBuilder: (context, index) {
         final uni = universityList[index];
 
         return GestureDetector(
           onTap: () {
-            context.push('/detalis', extra: uni);
+            context.push('/university-details', extra: uni);
           },
           child: Container(
             margin: const EdgeInsets.only(bottom: 15),
@@ -199,7 +203,7 @@ class _ProfileScreenState extends State<profile> {
                   children: [
                     Expanded(
                       child: Text(
-                        uni['name'] ?? "University Name",
+                        uni.name,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -207,7 +211,6 @@ class _ProfileScreenState extends State<profile> {
                         ),
                       ),
                     ),
-
                     Row(
                       children: [
                         const Icon(
@@ -217,7 +220,7 @@ class _ProfileScreenState extends State<profile> {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          uni['alpha_two_code'] ?? "GR",
+                          uni.alphaTwoCode,
                           style: const TextStyle(
                             color: Color.fromARGB(255, 77, 182, 172),
                             fontWeight: FontWeight.bold,
@@ -230,9 +233,7 @@ class _ProfileScreenState extends State<profile> {
 
                 const SizedBox(height: 4),
                 Text(
-                  (uni['web_pages'] != null && uni['web_pages'].isNotEmpty)
-                      ? uni['web_pages'][0]
-                      : "domain.edu",
+                  uni.webPages.isNotEmpty ? uni.webPages[0] : "domain.edu",
                   style: TextStyle(color: Colors.grey.shade400, fontSize: 13),
                 ),
 
@@ -248,7 +249,7 @@ class _ProfileScreenState extends State<profile> {
                     ),
                     const SizedBox(width: 4),
                     Text(
-                      "Macedonia",
+                      uni.country,
                       style: TextStyle(
                         color: Colors.grey.shade500,
                         fontSize: 13,
