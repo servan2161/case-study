@@ -10,7 +10,7 @@ class loader extends StatefulWidget {
 }
 
 class _loaderState extends State<loader> {
-  loadapp() async {
+  Future<void> loadapp() async {
     final storage = Storage();
     final first = await storage.first();
     if (first) {

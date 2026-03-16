@@ -23,7 +23,6 @@ class Login extends StatelessWidget {
               ),
 
               Gap(60),
-
               const Text(
                 "Let’s get started!",
                 textAlign: TextAlign.center,
